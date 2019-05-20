@@ -24,13 +24,13 @@ public class Gurobi_QBFPT_lin {
 	public static void main(String[] args) throws IOException, GRBException {
 		
 		// instance name
-		Gurobi_QBFPT_lin gurobi = new Gurobi_QBFPT_lin("instances/qbf400");
+		Gurobi_QBFPT_lin gurobi = new Gurobi_QBFPT_lin("instances/qbf060");
 		
 		env = new GRBEnv("mip1.log");
 		model = new GRBModel(env);
 		
 		// execution time in seconds 
-		model.getEnv().set(GRB.DoubleParam.TimeLimit, 600.0);
+		model.getEnv().set(GRB.DoubleParam.TimeLimit, 60 * 60.0);
 
 		// generate the model
 		gurobi.populateNewModel(model);

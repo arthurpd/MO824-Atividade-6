@@ -29,11 +29,12 @@ def read_csv(folder, op):
 	return np.array(x), np.array(y)
 
 n = 200
-target = 10447
+target = 10000
+# target = 10700
 # target = 11900
 
-def plot_ttt(folder, tipo):
-	x, y = read_csv(folder, False)
+def plot_ttt(folder, tipo, op = False):
+	x, y = read_csv(folder, op)
 
 	if (len(x) >= 2):
 		model = LinearRegression().fit(-np.log(1 - y).reshape(-1, 1), x)
@@ -48,8 +49,9 @@ def plot_ttt(folder, tipo):
 
 plot_ttt("ttt_data_ga", "Algoritmo Genético")
 plot_ttt("ttt_data_tabu", "Busca Tabu")
+plot_ttt("ttt_data_grasp", "GRASP", True)
 plt.ylabel("probabilidade")
-plt.xlabel(f"tempo até obj={target} (s)")
+plt.xlabel(f"tempo (s)")
 #x_tabu, y_tabu = read_csv("ttt_data_tabu", False)
 #plt.plot(-np.log(1 - y_ga), x_ga, marker='+', linestyle='none')
 #plt.plot(x_tabu, y_tabu, marker='+', linestyle='none')
