@@ -30,8 +30,8 @@ def read_csv(folder, op):
 
 n = 200
 target = 10000
-# target = 10700
-# target = 11900
+target = 10700
+target = 10900
 
 def plot_ttt(folder, tipo, op = False):
 	x, y = read_csv(folder, op)
@@ -52,9 +52,6 @@ plot_ttt("ttt_data_tabu", "Busca Tabu")
 plot_ttt("ttt_data_grasp", "GRASP", True)
 plt.ylabel("probabilidade")
 plt.xlabel(f"tempo (s)")
-#x_tabu, y_tabu = read_csv("ttt_data_tabu", False)
-#plt.plot(-np.log(1 - y_ga), x_ga, marker='+', linestyle='none')
-#plt.plot(x_tabu, y_tabu, marker='+', linestyle='none')
 plt.legend()
 plt.show()
 
